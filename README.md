@@ -1,58 +1,64 @@
-# PSCFinal
-Agenda Pessoal criada em java
-TRABALHO FINAL PROGRAMAÇÃO 
-DE SOLUÇÕES COMPUTACIONAIS
+# Atividade Final - Programação de Soluções Computacionais: Agenda Pessoal
 
-Alunos: 
-Lucas Guilherme Ávila Barreto - 1232021323
-Matheus Lopes Ferreira Leite - 1232022908
+Este repositório contém uma aplicação simples em Java que implementa uma **Agenda Pessoal**, desenvolvida como trabalho final da disciplina de Programação de Soluções Computacionais.
 
-   O sistema deve ser capaz de realizar as seguintes funções: Permitir que os usuários adicionem, visualizem, excluam e registrem eventos em suas agendas.
+## Alunos
 
-Requisitos funcionais de acordo com a IA:
+- Lucas Guilherme Ávila Barreto – 1232021323  
+- Matheus Lopes Ferreira Leite – 1232022908
 
-Autenticação de Usuário: O sistema deve permitir que os usuários se autentiquem para acessar suas agendas pessoais, garantindo que apenas usuários autorizados possam visualizar e modificar os eventos.
-Adicionar Eventos: Os usuários devem poder adicionar novos eventos à sua agenda, especificando detalhes como título do evento, data, hora, localização e uma descrição opcional.
-Visualizar Eventos: Os usuários devem poder visualizar todos os eventos em sua agenda, organizados por data e hora, para que possam ter uma visão geral de suas atividades futuras.
-Atualizar Eventos: Os usuários devem poder modificar os detalhes de um evento existente, como data, hora, localização ou descrição, caso haja alterações.
-Excluir Eventos: Os usuários devem poder excluir eventos da sua agenda, caso decidam não mais participar ou se o evento for cancelado.
-Definir Lembretes: Os usuários devem poder configurar lembretes para eventos específicos, para serem notificados em um determinado tempo antes do evento ocorrer (por exemplo, 15 minutos, 1 hora, etc.).
-Notificações: O sistema deve ser capaz de enviar notificações aos usuários quando se aproximar a hora de um evento, de acordo com as configurações de lembretes definidas pelo usuário.
-Sincronização: Idealmente, o sistema deve ser capaz de sincronizar os eventos da agenda pessoal do usuário entre diferentes dispositivos, para garantir que as atualizações feitas em um dispositivo sejam refletidas em todos os outros.
-Privacidade e Segurança: Deve haver medidas para garantir a privacidade e segurança dos dados do usuário, garantindo que apenas o usuário autorizado tenha acesso aos seus eventos.
-Recorrência de Eventos: Os usuários devem poder agendar eventos recorrentes, como reuniões semanais ou mensais, e especificar a frequência e a duração da recorrência.
-Compartilhamento de Eventos: Os usuários devem poder compartilhar eventos específicos com outros usuários, permitindo que amigos, familiares ou colegas vejam ou participem de determinados eventos.
-Exportar/Importar Calendários: Os usuários devem poder exportar ou importar seus calendários em diferentes formatos (por exemplo, iCal, CSV), para integração com outros aplicativos ou para backup.
+## Descrição
 
+O sistema permite que os usuários **autenticados** adicionem, visualizem e excluam eventos pessoais em uma agenda. Os eventos são registrados com título, data/hora, localização e descrição, e são armazenados em uma lista de memória. Cada novo evento também é gravado em um arquivo de log (`agenda_log.txt`).
 
+## Funcionalidades de acordo com a IA
 
-Crítica à IA:
+- **Autenticação de Usuário**: O sistema exige nome de usuário e senha para acessar a agenda.
+- **Adicionar Evento**: Permite cadastrar novos eventos com detalhes completos.
+- **Visualizar Eventos**: Lista todos os eventos adicionados.
+- **Excluir Evento**: Remove um evento selecionado da agenda.
+- **Registro em Arquivo**: Os eventos adicionados são logados em um arquivo texto para fins de auditoria.
 
-   Com base na nossa avaliação aos requisitos funcionais gerados pela IA, chegamos a conclusão de que a mesma tem uma boa eficácia e até mesmo muito completa,fornecendo uma informação clara e objetiva para os desenvolvedores do projeto, gerando requisitos que não planejávamos para nosso projeto como sincronização, privacidade e segurança, compartilhamento de eventos, exportar/importar calendários, entre outros. A rigidez excessiva pode dificultar a adaptação a mudanças visto que se trata de um projeto no qual pode sofrer variáveis adaptações durante seu desenvolvimento.
+> Algumas funcionalidades listadas como ideais pela IA (lembretes, sincronização, compartilhamento, segurança avançada, entre outras) **não foram implementadas**, mas foram avaliadas como sugestões interessantes para evoluções futuras.
 
-Diagrama de Classe:
+## Crítica à Geração de Requisitos por IA
 
-Usuário
-----------------------------
--nome: String
--senha: String
----------------------------
-+login()
+A IA forneceu uma análise de requisitos bastante **abrangente e coerente**, cobrindo desde funcionalidades básicas até aspectos avançados como **privacidade, exportação/importação de dados** e **eventos recorrentes**.
 
+Contudo, para o escopo deste projeto, consideramos a proposta da IA **além do necessário**, pois a implementação de certas funções exigiria bibliotecas externas, integração com servidores, ou múltiplos usuários. Para projetos acadêmicos com tempo limitado, **a flexibilidade é essencial**, e uma definição de requisitos excessivamente rígida pode dificultar ajustes durante o desenvolvimento.
 
-Agenda
-----------------------------
--evento: List
-----------------------------
-+adicionarEvento()
-+visualizarEvento()
-+excluirEvento()
+## Diagrama de Classes
 
-Evento
-----------------------------
--titulo:String
--dataHora: DateTime
--localizacao: String
--descricao: String
+**Usuário**
+- nome: String
+- senha: String
+- login(): boolean
 
+**Agenda**
+- eventos: List<Evento>
+- adicionarEvento(evento): void
+- visualizarEventos(): void
+- excluirEvento(teclado): void
 
+**Evento**
+- titulo: String
+- dataHora: String
+- localizacao: String
+- descricao: String
+- toString(): String
+
+## Como Executar
+
+1. Certifique-se de ter o Java JDK instalado em sua máquina.
+2. Clone este repositório:
+   ```bash
+   git clone https://github.com/lucasxavila/agenda-pessoal.git
+3. Navegue até o diretório do projeto:
+   ```bash
+   cd agenda-pessoal
+4. Compile os arquivos Java:
+   ```bash
+   javac -d bin src/*.java
+5. Execute o programa:
+   ```bash
+   java -cp bin Main
